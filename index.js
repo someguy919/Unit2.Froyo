@@ -1,10 +1,22 @@
-const flabors = window.prompt("enter some flavors")
+
+const flavors = window.prompt("enter some flavors", "chocolate, chocolate, vanilla, vanilla, mint, mint, strawberry")
 
 
-console.log(flavors)
+const flavorArr = flavors.split(",")
 
-const flavorsArr = flavors.split(',')
 
-console.log(flavorsArr)
 
-console.log(flavorsArr)
+function numberOfFlavors (flavors) {
+    const stats = {};
+    for (let i = 0; i < flavorArr.length; i++) {
+        const ltr = flavorArr[i].trim()
+        if ((stats)[ltr] === undefined) {
+            stats[ltr] = 0
+        }
+        stats[ltr]++
+    }
+    return stats
+}
+
+console.table(numberOfFlavors(flavors));
+
